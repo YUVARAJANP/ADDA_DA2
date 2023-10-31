@@ -1,28 +1,18 @@
-pipeline
-{
+pipeline {
   agent any
-
+  environment {
+    PATH = "D:/DevTools/apache-maven-3.9.4/bin$PATH"
+  }
   stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
     stage('Build') {
       steps {
-        echo 'Build App'
+        bat "C:\\Windows\\System32\\cmd.exe /c mvn clean test"
       }
     }
-    stage('Test') {
-      steps {
-        echo 'Test App'
-      }
-    }
-    stage('deploy') {
-      steps {
-        echo 'Deploy App'
-      }
-    }
-    post
-    {
-      failure
-      {
-        emailext body: 'Summary', subject: 'Pipeline Status', to: 'yuvarajanp71102@gmail.com'
-
   }
 }
