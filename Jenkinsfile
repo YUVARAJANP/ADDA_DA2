@@ -4,23 +4,15 @@ pipeline {
     PATH = "D:/DevTools/apache-maven-3.9.4/bin$PATH"
   }
   stages {
-    stage('Checkout') {
+    stage('Git Repo Check') {
       steps {
         checkout scm
       }
     }
-    stage('Build') {
+    stage('Clone Proj') {
       steps {
         checkout scm
-      }
-    stage('Build') {
-      steps {
-        checkout scm
-      }
-    stage('Build') {
-      steps {
-        checkout scm
-      }        
+      }       
     }
   }
 }
