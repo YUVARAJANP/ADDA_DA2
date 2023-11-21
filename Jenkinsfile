@@ -9,28 +9,25 @@ pipeline {
         checkout scm
       }
     }
-  stages {
     stage('Repository Clone') {
       steps {
         checkout scm
       }
-  stages('Build') {
+    stage('Build') {
       steps {
         checkout scm
       }
-  
-  stages {
-    stage('Docker build') {
+    }
+    stage('Docer Build') {
       steps {
         checkout scm
       }
-  stages {
-    stage('Docker push') {
+    }
+    stage('Docer Push') {
       steps {
         checkout scm
       }
-  
-    } 
+    }
     }
   }
 }
