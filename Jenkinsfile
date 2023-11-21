@@ -1,9 +1,11 @@
 pipeline {
     agent any
     environment {
-        // Use a general Maven tool
-        M2_HOME = tool 'Maven-3.9.4'
-        PATH = "${M2_HOME}/bin:$PATH"
+        // You can remove the PATH configuration, as Jenkins will set it automatically
+    }
+    tools {
+        // Define the Maven tool with the name 'Maven-3.9.4'
+        maven 'Maven-3.9.4'
     }
     stages {
         stage('Checkout') {
@@ -13,8 +15,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                // Use the 'mvn' command directly
-                sh 'mvn clean test'
+                script {
+                    // Use 'mvn' directly without specifying the full path
+                    sh 'mvn clean test'
+                }
             }
         }
     }
