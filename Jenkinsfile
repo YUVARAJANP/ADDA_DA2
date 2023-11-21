@@ -13,6 +13,7 @@ pipeline {
       steps {
         checkout scm
       }
+    }
     stage('Build') {
       steps {
         checkout scm
